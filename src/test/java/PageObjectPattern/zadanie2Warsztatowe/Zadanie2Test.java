@@ -1,7 +1,7 @@
 package PageObjectPattern.zadanie2Warsztatowe;
 
 import PageObjectPattern.myStorePage.AuthenticationPage;
-import PageObjectPattern.myStorePage.CheckHummingbirdTshirtSize;
+import PageObjectPattern.myStorePage.CheckHummingbirdSweaterSize;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
@@ -33,15 +33,15 @@ public class Zadanie2Test {
         WebElement clothesButton = driver.findElement(By.xpath("//*[@id=\"category-3\"]/a"));
         clothesButton.click();
 
-        WebElement hummingbirdPrintedSweater = driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[1]/div/a/img"));
+        WebElement hummingbirdPrintedSweater = driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[2]/div/a/img"));
         hummingbirdPrintedSweater.click();
 
         WebElement specialOffer = driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]/div[2]/div[1]/div[2]/div/span[2]"));
         System.out.println(specialOffer.getText());
         Assertions.assertEquals(specialOffer.getText(), "SAVE 20%");
 
-        CheckHummingbirdTshirtSize checkHummingbirdTshirtSize = new CheckHummingbirdTshirtSize(driver);
-        checkHummingbirdTshirtSize.sizeM("M");
+        CheckHummingbirdSweaterSize checkHummingbirdSweaterSize = new CheckHummingbirdSweaterSize(driver);
+        checkHummingbirdSweaterSize.sizeM("M");
 
         driver.findElement(By.cssSelector(".touchspin-up")).click();
         driver.findElement(By.cssSelector(".touchspin-up")).click();

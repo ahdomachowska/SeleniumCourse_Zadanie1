@@ -1,4 +1,4 @@
-Feature: add new address
+Feature: add new address and delete
 
   Scenario Outline: add new address
     Given user is logged in on account page
@@ -6,7 +6,7 @@ Feature: add new address
     When user click create new address
     When user fills from with data "<alias>", "<address>", "<city>", "<zipPostalCode>", "<country>", "<phone>"
     And click Save button to add new address
-    Then new address is added
+    Then new address is added and deleted
 
     Examples:
 

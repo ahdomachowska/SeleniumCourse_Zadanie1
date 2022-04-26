@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CheckHummingbirdTshirtSize {
+public class CheckHummingbirdSweaterSize {
 
     private WebDriver driver;
 
@@ -14,7 +14,7 @@ public class CheckHummingbirdTshirtSize {
     @FindBy(id = "group_1")
     private WebElement checkSizeM;
 
-    public CheckHummingbirdTshirtSize(WebDriver driver) {
+    public CheckHummingbirdSweaterSize(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 

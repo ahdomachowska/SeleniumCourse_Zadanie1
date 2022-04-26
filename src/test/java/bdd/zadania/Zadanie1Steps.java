@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 
 public class Zadanie1Steps {
 
@@ -59,24 +61,37 @@ public class Zadanie1Steps {
         createNewAddressPage.createAddress();
     }
 
-    @Then("new address is added")
-    public void newAddressIsAdded() {
+    @Then("new address is added and deleted")
+    public void newAddressIsAddedAndDeleted() {
         WebElement newAddressIsAdded = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
         System.out.println(newAddressIsAdded.getText());
         Assertions.assertEquals(newAddressIsAdded.getText(), "Address successfully added!");
 
-        WebElement firstAlias = driver.findElement(By.cssSelector("#address-24480 > div.address-body > h4"));
-        System.out.println(firstAlias.getText());
-        Assertions.assertEquals(firstAlias.getText(), "alfons2");
+        List<WebElement> webElementList = driver.findElements(By.cssSelector("article[id^='address-']")); //napisane na podstawie Attribute Starts with
+        webElementList.forEach((tile) -> {
 
-       /* WebElement firstNameInput = driver.findElement(By.xpath("//*[@id=\"address-24256\"]/div[1]/address/text(Alfons Kawka)[1]"));
-        System.out.println(firstNameInput.getText());
-        Assertions.assertEquals(firstNameInput.getText(), "Alfons Kawka");*/
+            if (tile.findElement(By.cssSelector("div.address-body > h4")).getText().equals("alfons2")){
 
-        //driver.find_elements_by_xpath('//div[contains(text(), "' + text + '")]')
+                if(tile.findElement(By.cssSelector("div.address-body > address")).getText().contains(""" 
+                        Alfons Kawka
+                        Downing Street
+                        London
+                        EC4Y 9AY
+                        United Kingdom
+                        729888555""")){
+                    tile.findElement(By.cssSelector("div.address-footer > a:nth-child(2) > span")).click();
+                }
 
+
+            }
+
+        });
+        Assertions.assertEquals(driver.findElement(By.cssSelector("#notifications > div > article > ul > li")).getText(), "Address successfully deleted!");
     }
+
 }
+
+// potrojny cudzyslow porownoje stringi wraz ze znakami konca linii, chyba od javy 11 tak można robić
 
 
 
