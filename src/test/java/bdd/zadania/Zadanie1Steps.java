@@ -84,11 +84,14 @@ public class Zadanie1Steps {
             }
 
         });
-        Assertions.assertEquals(driver.findElement(By.cssSelector("#notifications > div > article > ul > li")).getText(), "Address successfully deleted!");
+
+        Assertions.assertEquals(driver.findElement(By.cssSelector("#notifications > div > article")).getText(), "Address successfully deleted!");
+        System.out.println("Address successfully deleted!");
     }
 }
 
 // potrojny cudzyslow porownoje stringi wraz ze znakami konca linii, chyba od javy 11 tak można robić
+
 
 
 
