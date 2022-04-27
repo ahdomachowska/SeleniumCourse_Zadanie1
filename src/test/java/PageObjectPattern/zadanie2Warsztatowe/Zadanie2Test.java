@@ -45,6 +45,7 @@ public class Zadanie2Test {
 
         driver.findElement(By.cssSelector(".touchspin-up")).click();
         driver.findElement(By.cssSelector(".touchspin-up")).click();
+
         {
             WebElement quantity = driver.findElement(By.cssSelector(".touchspin-up"));
             Actions builder = new Actions(driver);
