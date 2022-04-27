@@ -19,7 +19,7 @@ public class Zadanie2Test {
     private WebDriver driver;
 
     @Test
-    public void userIsLoggedInOnAccountPage() throws InterruptedException, IOException {
+    public void userIsBoughtHummingbirdPrintedSweater() throws InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/drivers/chromedriver.exe");
 
@@ -33,8 +33,8 @@ public class Zadanie2Test {
         WebElement clothesButton = driver.findElement(By.xpath("//*[@id=\"category-3\"]/a"));
         clothesButton.click();
 
-        WebElement hummingbirdPrintedSweater = driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[2]/div/a/img"));
-        hummingbirdPrintedSweater.click();
+        WebElement hummingbirdPrintedSweaterTile = driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[2]/div/a/img"));
+        hummingbirdPrintedSweaterTile.click();
 
         WebElement specialOffer = driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]/div[2]/div[1]/div[2]/div/span[2]"));
         System.out.println(specialOffer.getText());
@@ -46,9 +46,9 @@ public class Zadanie2Test {
         driver.findElement(By.cssSelector(".touchspin-up")).click();
         driver.findElement(By.cssSelector(".touchspin-up")).click();
         {
-            WebElement element = driver.findElement(By.cssSelector(".touchspin-up"));
+            WebElement quantity = driver.findElement(By.cssSelector(".touchspin-up"));
             Actions builder = new Actions(driver);
-            builder.doubleClick(element).perform();
+            builder.doubleClick(quantity).perform();
         }
         driver.findElement(By.cssSelector(".touchspin-up")).click();
         driver.findElement(By.cssSelector(".touchspin-up")).click();
@@ -59,9 +59,9 @@ public class Zadanie2Test {
         WebElement checkoutButton = driver.findElement(By.cssSelector("#main > div > div.cart-grid-right.col-xs-12.col-lg-4 > div.card.cart-summary > div.checkout.cart-detailed-actions.card-block > div > a"));
         checkoutButton.click();
 
-        WebElement aliasFirst = driver.findElement(By.cssSelector(".address-alias"));
-        System.out.println(aliasFirst.getText());
-        Assertions.assertEquals(aliasFirst.getText(), "alfons1");
+        WebElement aliasAddressFirst = driver.findElement(By.cssSelector(".address-alias"));
+        System.out.println(aliasAddressFirst.getText());
+        Assertions.assertEquals(aliasAddressFirst.getText(), "alfons1");
 
         driver.findElement(By.name("confirm-addresses")).click();
         driver.findElement(By.cssSelector("#js-delivery > div > div.delivery-options > div:nth-child(1) > div > span > span")).click();
